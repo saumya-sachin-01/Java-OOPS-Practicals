@@ -1,1 +1,1 @@
-# Java-OOPS
+# Java-OOPS-Practicals
