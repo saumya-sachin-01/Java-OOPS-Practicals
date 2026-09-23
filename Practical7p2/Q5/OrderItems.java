@@ -17,7 +17,7 @@ public class OrderItems {
         return price * quantity;
     }
 
-    
+
     void displayItemDetails() {
         System.out.println("----------------------------------------");
         System.out.println("Product Id = " + productId);

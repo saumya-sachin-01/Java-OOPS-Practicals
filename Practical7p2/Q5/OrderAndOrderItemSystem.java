@@ -23,7 +23,7 @@ public class OrderAndOrderItemSystem {
             System.out.println("1.Order1");
             System.out.println("2.Order2");
             System.out.println("3.Order3");
-            System.out.println("4.Exit");
+            System.out.println("5.Exit");
             System.out.println("-----------------------------------------------------------");
             System.out.println("Enter your choice : ");
             c = sc.nextInt();
@@ -118,7 +118,7 @@ public class OrderAndOrderItemSystem {
                     }
                     while (choice != 4);
                     break;
-                case 4:
+                        case 4:
                     System.out.println("Exit!!");
                     break;
                 default:
