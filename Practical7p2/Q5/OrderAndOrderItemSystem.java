@@ -56,7 +56,7 @@ public class OrderAndOrderItemSystem {
                                 break;
                         }
                     }
-                    while (choice != 5);
+                    while (choice != 4);
                     break;
                 case 2:
                     do {
