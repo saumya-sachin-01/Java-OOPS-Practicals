@@ -13,9 +13,11 @@ public class OrderAndOrderItemSystem {
         list2.add(new OrderItems(1, "Bag", 1400, 1));
         list3.add(new OrderItems(1, "Laptop", 100000, 1));
 
-        Order o1 = new Order("123", "Mohan", list1);
-        Order o2 = new Order("134", "Ram", list2);
-        Order o3 = new Order("111", "Shyam", list3);
+        ArrayList<Order> orders = new ArrayList<>();
+
+        orders.add(new Order("1", "Mohan", list1));
+        orders.add(new Order("2", "Ram", list2));
+        orders.add(new Order("3", "Shyam", list3));
         Scanner sc = new Scanner(System.in);
         int choice, k, c;
         do {
@@ -23,7 +25,9 @@ public class OrderAndOrderItemSystem {
             System.out.println("1.Order1");
             System.out.println("2.Order2");
             System.out.println("3.Order3");
-            System.out.println("5.Exit");
+            System.out.println("4.Remove Order");
+            System.out.println("5.Display All Order Details");
+            System.out.println("6.Exit");
             System.out.println("-----------------------------------------------------------");
             System.out.println("Enter your choice : ");
             c = sc.nextInt();
@@ -40,13 +44,13 @@ public class OrderAndOrderItemSystem {
                         choice = sc.nextByte();
                         switch (choice) {
                             case 1:
-                                o1.addItem();
+                                orders.getFirst().addItem();
                                 break;
                             case 2:
-                                o1.removeItem();
+                                orders.get(1).removeItem();
                                 break;
                             case 3:
-                                o1.displayOrderDetails();
+                                orders.getLast().displayOrderDetails();
                                 break;
                             case 4:
                                 System.out.println("Exit!!");
@@ -70,13 +74,13 @@ public class OrderAndOrderItemSystem {
                         choice = sc.nextByte();
                         switch (choice) {
                             case 1:
-                                o2.addItem();
+                                orders.get(1).addItem();
                                 break;
                             case 2:
-                                o2.removeItem();
+                                orders.get(1).removeItem();
                                 break;
                             case 3:
-                                o2.displayOrderDetails();
+                                orders.get(1).displayOrderDetails();
                                 break;
                             case 4:
                                 System.out.println("Exit!!");
@@ -100,13 +104,13 @@ public class OrderAndOrderItemSystem {
                         choice = sc.nextByte();
                         switch (choice) {
                             case 1:
-                                o3.addItem();
+                                orders.getLast().addItem();
                                 break;
                             case 2:
-                                o3.removeItem();
+                                orders.getLast().removeItem();
                                 break;
                             case 3:
-                                o3.displayOrderDetails();
+                                orders.getLast().displayOrderDetails();
                                 break;
                             case 4:
                                 System.out.println("Exit!!");
@@ -118,13 +122,34 @@ public class OrderAndOrderItemSystem {
                     }
                     while (choice != 4);
                     break;
-                        case 4:
+                case 4:
+                    String o_r;
+                    System.out.println("Enter order number to remove : ");
+                    o_r = sc.next();
+                    boolean found = false;
+                    for(Order o : orders){
+                        if(o.orderId.equals(o_r)){
+                            orders.remove(o);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if(!found){
+                        System.out.println("Order not found !!");
+                    }
+                    break;
+                case 5:
+                    for(Order o : orders){
+                        o.displayOrderDetails();
+                    }
+                    break;
+                case 6:
                     System.out.println("Exit!!");
                     break;
                 default:
                     System.out.println("Invalid Choice!!");
             }
         }
-        while (c != 4);
+        while (c != 6);
     }
 }
